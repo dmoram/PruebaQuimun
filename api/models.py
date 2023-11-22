@@ -11,6 +11,7 @@ class Empresa(models.Model):
     name = models.CharField(max_length=50)
 
 class Arriendo(models.Model):
-    costo_diario = models.BigIntegerField()
-    id_cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    id_empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
+    costo_diario = models.BigIntegerField(default=0)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, related_name='arriendos', default=0)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, related_name='arriendos', default=0)
+    dias = models.BigIntegerField(default=0)
