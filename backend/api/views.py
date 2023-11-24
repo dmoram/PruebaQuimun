@@ -5,6 +5,7 @@ from rest_framework import generics
 from rest_framework.viewsets import ModelViewSet
 from .models import Cliente, Empresa, Arriendo
 from .serializers import ArriendoSerializer, ClienteSerializer, EmpresaSerializer
+from django.db.models import OuterRef, Subquery, Sum, F
 
 class ArriendoListCreateView(ModelViewSet):
     queryset = Arriendo.objects.all()
@@ -17,3 +18,6 @@ class ClienteListCreateView(ModelViewSet):
 class EmpresaListCreateView(ModelViewSet):
     queryset = Empresa.objects.all()
     serializer_class = EmpresaSerializer
+
+
+    
